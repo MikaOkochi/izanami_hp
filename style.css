@@ -171,17 +171,36 @@ nav ul li a:hover::after {
 /* =========================================
    6. コンテンツ要素
    ========================================= */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+
+/* =========================================
+   取扱業務：2x2レイアウトの強制
+   ========================================= */
+#services .grid {
+    display: grid !important;
+    /* 強制的に 1:1 の比率で2列並べる */
+    grid-template-columns: 1fr 1fr !important; 
+    gap: 30px !important;
+    max-width: 1000px !important; /* 横幅を適切に保つ */
+    margin: 0 auto !important;
 }
 
-.card {
-    background: #ffffff;
-    padding: 40px;
-    border-top: 5px solid var(--accent-color);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+#services .card {
+    background-color: #ffffff !important;
+    padding: 40px !important;
+    border-top: 5px solid var(--accent-color) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 220px;
+}
+
+/* スマホでは1列にする */
+@media (max-width: 768px) {
+    #services .grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 .info-table {
