@@ -18,7 +18,7 @@ body {
     margin: 0;
 }
 
-h1, h2, .signature {
+h1, h2, h3, .signature {
     font-family: 'Noto Serif JP', serif;
 }
 
@@ -29,15 +29,16 @@ h1, h2, .signature {
 }
 
 /* =========================================
-   3. ヘッダー (ロゴとナビゲーション)
+   3. ヘッダー (視認性向上版)
    ========================================= */
 header {
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    padding: 10px 0; /* 高さを抑える調整済 */
+    background: #ffffff !important;
+    /* ヘッダーを画像から浮かせて目立たせるための影 */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12) !important;
+    padding: 10px 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 header .container {
@@ -51,31 +52,56 @@ header h1 {
 }
 
 header h1 img {
-    height: 50px; /* ロゴのサイズ微調整 */
+    height: 50px;
     display: block;
-    margin: -5px 0; /* 上下の余白を削る調整 */
+    margin: -5px 0;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 25px;
     margin: 0;
     padding: 0;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 700;
+    text-decoration: none !important;
+    color: var(--text-color) !important;
+    font-weight: 700 !important; /* 文字を太くして目立たせる */
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ナビゲーションのホバーアニメーション */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 .btn {
-    background: var(--primary-color);
-    color: #fff !important;
-    padding: 10px 20px;
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    padding: 12px 24px;
     border-radius: 4px;
     text-decoration: none;
+    font-weight: 700;
     transition: opacity 0.3s;
 }
 
@@ -84,38 +110,38 @@ nav ul li a {
 }
 
 /* =========================================
-   4. メインビジュアル (Heroセクション)
+   4. メインビジュアル (Hero)
    ========================================= */
 .hero {
-    /* 背景画像を images/top.jpg に変更し、文字を読みやすくオーバーレイを設定 */
-    background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/top.jpg');
+    /* 画像を少し暗め(0.5)にして、上のヘッダーと文字を際立たせる */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./images/top.jpg') !important;
     background-size: cover;
     background-position: center;
-    height: 70vh; /* 画像をしっかり見せるための高さ */
+    height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
 }
 
 .hero-content h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    font-size: 1.3rem;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.4);
 }
 
 /* =========================================
    5. セクション共通設定
    ========================================= */
 .section {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .bg-light {
@@ -124,10 +150,10 @@ nav ul li a {
 
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
-    font-size: 2rem;
+    margin-bottom: 60px;
+    font-size: 2.2rem;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     color: var(--text-color);
 }
 
@@ -137,53 +163,129 @@ nav ul li a {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
+    width: 70px;
+    height: 3px;
     background: var(--primary-color);
 }
 
 /* =========================================
-   6. 各種コンテンツ (グリッド・カード・テーブル)
+   6. コンテンツ要素
    ========================================= */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 25px;
 }
 
 .card {
-    background: #fff;
-    padding: 30px;
-    border-top: 4px solid var(--accent-color);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    background: #ffffff;
+    padding: 40px;
+    border-top: 5px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .info-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    background: #ffffff;
 }
 
 .info-table th, .info-table td {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+    padding: 20px;
+    border-bottom: 1px solid #eeeeee;
 }
 
 .info-table th {
-    width: 30%;
-    background: #f2f2f2;
+    width: 25%;
+    background: #f9f9f9;
+    font-weight: 700;
 }
 
 .map-container {
-    margin-top: 40px;
-    border-radius: 8px;
+    margin-top: 50px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 /* =========================================
-   7. スマホ対応 (レスポンシブ)
+   7. お問い合わせフォーム
+   ========================================= */
+.contact-form {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #eeeeee;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-group label span {
+    background: #e74c3c;
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fcfcfc;
+}
+
+.submit-btn {
+    margin-top: 10px;
+    border: none !important;
+    cursor: pointer;
+    width: 280px;
+    padding: 18px 0 !important;
+}
+
+/* =========================================
+   8. プライバシーポリシー
+   ========================================= */
+.privacy-content {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 10px;
+    border: 1px solid #eeeeee;
+}
+
+.privacy-content h3 {
+    border-left: 5px solid var(--primary-color);
+    padding-left: 20px;
+    margin: 40px 0 20px 0;
+}
+
+/* =========================================
+   9. フッター
+   ========================================= */
+footer {
+    background: #ffffff;
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid #eeeeee;
+}
+
+/* =========================================
+   10. レスポンシブ (スマホ対応)
    ========================================= */
 @media (max-width: 768px) {
     header .container {
@@ -192,14 +294,12 @@ nav ul li a {
     }
 
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        gap: 15px;
         font-size: 0.9rem;
     }
 
     .hero {
-        height: 50vh;
+        height: 60vh;
     }
 
     .hero-content h2 {
@@ -207,86 +307,26 @@ nav ul li a {
     }
 
     .section {
-        padding: 50px 0;
+        padding: 60px 0;
     }
 }
 
-/* お問い合わせフォームの装飾 */
-.contact-form {
-    background: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
-}
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--text-color);
-}
-
-.form-group label span {
-    background: #e74c3c;
-    color: #fff;
-    font-size: 0.7rem;
-    padding: 2px 6px;
-    border-radius: 3px;
-    margin-left: 10px;
-    vertical-align: middle;
-}
-
-.form-group input, 
-.form-group select, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 1rem;
-    font-family: inherit;
-    background-color: #fcfcfc;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    background-color: #fff;
-}
-
 /* =========================================
-   9. プライバシーポリシー
+   代表メッセージのレイアウト調整
    ========================================= */
-.privacy-content {
-    background: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    border: 1px solid #eee;
-    font-size: 0.95rem;
-    line-height: 1.8;
+#message .message-text {
+    max-width: 700px;      /* 文章が横に広がりすぎないよう制限 */
+    margin: 0 auto;        /* ブロック自体を中央に寄せる */
+    text-align: center;    /* 本文のテキストを中央揃えにする */
 }
 
-.privacy-content h3 {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    border-left: 4px solid var(--primary-color);
-    padding-left: 15px;
-    margin: 30px 0 15px 0;
+#message .message-text p {
+    margin-bottom: 1.5rem; /* 行間のバランスを調整 */
 }
 
-.privacy-content ul {
-    margin-bottom: 20px;
-}
-
-.enactment-date {
-    margin-top: 40px;
-    text-align: right;
+#message .signature {
+    margin-top: 40px;      /* 名前の上に少しスペースをあける */
+    font-size: 1.2rem;     /* 名前を少し大きく */
     font-weight: 700;
+    text-align: center;    /* 名前も中央に */
 }
