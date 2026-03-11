@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "From: " . "=?UTF-8?B?" . base64_encode("公式サイトフォーム") . "?= <$to>\r\n";
     $headers .= "Reply-To: $email\r\n";
 
-    // 4. mb_send_mail ではなく mail 関数を使用して自動変換を回避
+    // 4. mail 関数を使用して送信
     if (mail($to, $subject, $body, $headers)) {
         header("Location: thanks.html");
         exit;
@@ -46,3 +46,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: index.html");
     exit;
 }
+?>
