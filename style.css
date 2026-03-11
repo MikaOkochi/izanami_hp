@@ -397,3 +397,16 @@ footer {
     font-weight: 700;
     text-align: center;    /* 名前も中央に */
 }
+
+.policy-check a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .policy-check {
+        text-align: left !important;
+        padding-left: 10px;
+    }
+}
