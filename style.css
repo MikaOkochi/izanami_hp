@@ -29,85 +29,73 @@ h1, h2, h3, .signature {
 }
 
 /* =========================================
-   3. ヘッダー (視認性向上版)
+   3. ヘッダー (確実な反映のための詳細設定)
    ========================================= */
-header {
-    background: #ffffff !important;
-    /* ヘッダーを画像から浮かせて目立たせるための影 */
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12) !important;
-    padding: 10px 0;
-    position: sticky;
+
+/* body を頭につけて優先順位を最大にします */
+body header {
+    background-color: #ffffff !important;
+    /* 下にうっすらと影をつけて画像から浮かせます */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    padding: 12px 0 !important;
+    position: sticky !important;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;
+    border-bottom: none !important;
 }
 
-header .container {
+body header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* ロゴのサイズ調整 */
 header h1 {
     margin: 0;
+    line-height: 0;
 }
 
 header h1 img {
-    height: 50px;
+    height: 50px !important; /* 高さを50pxに固定 */
+    width: auto;
     display: block;
-    margin: -5px 0;
 }
 
-nav ul {
+/* メニュー文字の調整 */
+header nav ul {
     display: flex;
     list-style: none;
-    gap: 25px;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
 
-nav ul li a {
+header nav ul li a {
     text-decoration: none !important;
-    color: var(--text-color) !important;
-    font-weight: 700 !important; /* 文字を太くして目立たせる */
-    font-size: 1rem;
-    position: relative;
-    padding-bottom: 5px;
+    color: #555555 !important; /* ロゴのグレーに合わせる */
+    font-weight: 700 !important; /* しっかり太く */
+    font-size: 1rem !important;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: var(--primary-color) !important;
+/* お問い合わせボタンを優しい色味に変更 */
+header .btn {
+    background-color: #EBB4B0 !important; /* ロゴと同じ淡いピンク */
+    color: #fff !important;
+    padding: 10px 22px !important;
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    box-shadow: none !important; /* 影を消してフラットに */
+    transition: background-color 0.3s ease;
 }
 
-/* ナビゲーションのホバーアニメーション */
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
+/* マウスを置いたときに少しだけ色を濃くする */
+header .btn:hover {
+    background-color: #e2a5a0 !important; 
+    opacity: 1 !important;
 }
 
-nav ul li a:hover::after {
-    width: 100%;
-}
-
-.btn {
-    background: var(--primary-color) !important;
-    color: #ffffff !important;
-    padding: 12px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: opacity 0.3s;
-}
-
-.btn:hover {
-    opacity: 0.8;
-}
 
 /* =========================================
    4. メインビジュアル (Hero)

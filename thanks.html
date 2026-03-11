@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送信完了 | 司法書士法人いざなみ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* サンクス画面専用のシンプル調整 */
+        body {
+            background-color: #FFFBFA; /* サイト共通の薄ピンク */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .thanks-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .thanks-card {
+            background: #ffffff;
+            max-width: 650px;
+            width: 100%;
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid #EBB4B0;
+        }
+        .thanks-card h2 {
+            font-family: 'Noto Serif JP', serif;
+            color: #555555;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        .thanks-card p {
+            color: #666;
+            line-height: 2;
+            margin-bottom: 35px;
+        }
+        .return-btn {
+            display: inline-block;
+            background-color: #EBB4B0;
+            color: #fff !important;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: opacity 0.3s;
+        }
+        .return-btn:hover {
+            opacity: 0.8;
+        }
+        footer {
+            background: #fff;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<header style="background:#fff; padding:15px 0; text-align:center; border-bottom:1px solid #eee;">
+    <div class="container">
+        <img src="images/logo.png" alt="司法書士法人いざなみ" style="height: 50px;">
+    </div>
+</header>
+
+<main class="thanks-main">
+    <div class="thanks-card">
+        <h2>お問い合わせありがとうございます</h2>
+        <p>
+            メッセージは正常に送信されました。<br>
+            内容を確認の上、担当者より折り返しご連絡させていただきます。<br>
+            <span style="font-size: 0.9rem;">※数日経っても返信がない場合は、お手数ですがお電話にてお問い合わせください。</span>
+        </p>
+        <a href="index.html" class="return-btn">トップページへ戻る</a>
+    </div>
+</main>
+
+<footer>
+    <p style="font-size: 0.8rem; color: #888; margin: 0;">© 2024 Judicial Scrivener Corporation IZANAMI.</p>
+</footer>
+
+</body>
+</html>
